@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add to your CSS */
+:root {
+  --background: #121212;
+  --solana-gradient: linear-gradient(45deg, #9945FF, #14F195);
+}
+
+body {
+  background-color: var(--background);
+}
+
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--solana-gradient);
+  filter: blur(15px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Add these animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.token-physics {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.token-physics:hover {
+  transform: scale(1.1) rotate(5deg);
+}
